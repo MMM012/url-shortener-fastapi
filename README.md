@@ -2,7 +2,7 @@
 
 Сервис сокращения ссылок на FastAPI с авторизацией, статистикой и кэшированием редиректов в Redis.
 
-## API (кратко)
+## API
 
 - POST /auth/register – регистрация.
 - POST /auth/login – логин, выдаёт JWT.
@@ -13,13 +13,12 @@
 - DELETE /links/{short_code} – удалить ссылку.
 - GET /links/search?original_url=... – поиск по исходному URL.
 
-Полное описание см. в Swagger: `/docs`.
 
 ## Запуск
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # Windows: .\venv\Scripts\activate
+source venv/bin/activate 
 pip install -r requirements.txt
 
 export DATABASE_URL="sqlite:///./test.db"
