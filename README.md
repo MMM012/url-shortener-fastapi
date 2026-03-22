@@ -34,3 +34,40 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 База данных
 users: id, email, hashed_password, created_at
 links: id, short_code, original_url, created_at, expires_at, click_count, last_accessed_at, custom_alias, owner_id
+
+
+## Тестирование
+
+Функциональные и негативные тесты написаны с использованием pytest и FastAPI TestClient.
+Тестируются основные ручки API (создание, обновление, удаление, редирект, статистика и поиск ссылок),
+а также сценарии регистрации и авторизации пользователей.
+
+Запуск тестов:
+
+pytest -q
+
+Покрытие и HTML-отчёт:
+pytest --cov=app --cov-report=html
+
+
+Отчёт можно открыть из папки htmlcov/index.html.
+Текущее общее покрытие по проекту ~75%
+
+
+И раздел про нагрузку:
+
+```markdown
+
+## Нагрузочное тестирование
+
+Для нагрузки использовал Locust (`locustfile.py` в корне проекта)
+
+Установка:
+
+pip install locust
+
+Запуск приложения:
+uvicorn app.main:app --reload
+
+Запуск Locust:
+locust -f locustfile.py --host=http://localhost:8000

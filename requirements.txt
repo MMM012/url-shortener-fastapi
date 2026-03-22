@@ -13,3 +13,12 @@ python-jose[cryptography]==3.3.0
 passlib[argon2]==1.7.4
 
 redis==5.0.8
+
+
+pytest==9.0.2
+pytest-cov==4.1.0
+coverage==7.4.4
+httpx==0.28.1
+pytest-httpx==0.36.0
+
+locust==2.32.2
